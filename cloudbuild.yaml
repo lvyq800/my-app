@@ -1,17 +1,17 @@
 steps:
 #Authentication
-#- name: gcr.io/cloud-builders/gcloud
-#  args:
-#  - kms
-#  - decrypt
-#  - --ciphertext-file=.env.enc
-#  - --plaintext-file=.env
-#  - --location=global
-#  - --keyring=myproject
-#  - --key=cloudbuild-env
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - kms
+  - decrypt
+  - --ciphertext-file=.env.enc
+  - --plaintext-file=.env
+  - --location=global
+  - --keyring=myproject
+  - --key=cloudbuild-env
 # Install
-#- name: 'gcr.io/cloud-builders/npm'
-#  args: ['install']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['install']
 # Build
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
